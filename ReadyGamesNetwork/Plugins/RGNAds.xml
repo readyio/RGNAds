@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RGNAds</name>
+    </assembly>
+    <members>
+        <member name="T:RGN.Modules.Ads.AdsModule">
+            <summary>
+            This module is responsible for ads functionality.
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Ads.AdsModule.GetAdsToDisplayAsync(System.String,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Returns the ads to display based on the query data.
+            </summary>
+            <param name="type">The type of the ad. Possible values are 'banner' and 'fullscreen'.</param>
+            <param name="limit">Maximum number of results.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
+            <returns>The details of the ads to display.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the input values are invalid.</exception>
+        </member>
+        <member name="M:RGN.Modules.Ads.AdsModule.GetByIdAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves an ad by its ID.
+            </summary>
+            <param name="id">The ID of the ad to retrieve.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
+            <returns>The details of the retrieved ad.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the input value is invalid.</exception>
+        </member>
+        <member name="M:RGN.Modules.Ads.AdsModule.GetByIdsAsync(System.Collections.Generic.List{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Retrieves ads by their IDs.
+            </summary>
+            <param name="ids">The IDs of the ads to retrieve.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
+            <returns>The details of the retrieved ads.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the input values are invalid.</exception>
+        </member>
+        <member name="M:RGN.Modules.Ads.AdsModule.GetByTagsAsync(System.Collections.Generic.List{System.String},System.Int32,System.Nullable{System.Int64},System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+            Retrieves ads by tags.
+            </summary>
+            <param name="tags">The tags of the ads to retrieve.</param>
+            <param name="limit">The maximum number of ads to return.</param>
+            <param name="startAfter">The updatedAt timestamp to start after. Optional.</param>
+            <param name="ignoreTimestamp">Whether to ignore the timestamp filter. Optional.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
+            <returns>The details of the retrieved ads.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the input values are invalid.</exception>
+        </member>
+        <member name="T:RGN.Modules.Ads.AdData">
+            <summary>
+            Represents a Marketplace Offer in the Ready Games Network (RGN) with its associated properties.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.id">
+            <summary>
+            Unique identifier for the ad.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.title">
+            <summary>
+            The title of the ad.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.description">
+            <summary>
+            The description of the ad.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.redirectUrls">
+            <summary>
+            The URLs per platform to redirect when the ad is clicked.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.previewBinaryUrl">
+            <summary>
+            The preview binary URL of the ad.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.binaryUrl">
+            <summary>
+            The ad binary URL of the ad.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.isActive">
+            <summary>
+            Indicates whether the ad is active.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.time">
+            <summary>
+            The time configuration for the ad. 'start' and 'end' are used to determine if the ad is available.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.tags">
+            <summary>
+            The tags associated with the ad.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.random">
+            <summary>
+            The random configuration for the ad, used to determine ad fetch behavior.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.viewLimit">
+            <summary>
+            The absolute limit of the ad views.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.viewLimitPerUser">
+            <summary>
+            The limit of the ad views per user. -1 means no limit.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.type">
+            <summary>
+            The type of the ad. Possible values are 'banner' and 'fullscreen'.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.currentViewLimit">
+            <summary>
+            The current view limit of the ad, serving as a counter for the ad views.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.clickCounter">
+            <summary>
+            The counter for the ad clicks.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.createdAt">
+            <summary>
+            The UNIX timestamp representing when the ad was created, in milliseconds since midnight, January 1, 1970 UTC.
+            Automatically populated by the backend.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.updatedAt">
+            <summary>
+            The UNIX timestamp representing when the ad was last updated, in milliseconds since midnight, January 1, 1970 UTC.
+            Automatically populated by the backend.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.createdBy">
+            <summary>
+            The user ID of who created the ad. Automatically populated by the backend.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.AdData.updatedBy">
+            <summary>
+            The user ID of who last updated the ad. Automatically populated by the backend.
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Ads.RandomConfig">
+            <summary>
+            Represents the random configuration for the ad, to determine ad fetch behavior.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Ads.RandomConfig.config">
+            <summary>
+            Configuration details for randomness in ad selection
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Ads.AdDataResponseData">
+            <summary>
+            Response data for a single ad retrieval.
+            </summary>
+        </member>
+        <member name="P:RGN.Modules.Ads.AdDataResponseData.ad">
+            <summary>
+            The retrieved ad data.
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Ads.AdsResponseData">
+            <summary>
+            Response data for multiple ads retrieval.
+            </summary>
+        </member>
+        <member name="P:RGN.Modules.Ads.AdsResponseData.ads">
+            <summary>
+            The list of retrieved ads.
+            </summary>
+        </member>
+    </members>
+</doc>
