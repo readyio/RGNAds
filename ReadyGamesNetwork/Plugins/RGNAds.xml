@@ -9,11 +9,18 @@
             This module is responsible for ads functionality.
             </summary>
         </member>
-        <member name="M:RGN.Modules.Ads.AdsModule.GetAdsToDisplayAsync(System.String,System.Int32,System.Threading.CancellationToken)">
+        <member name="M:RGN.Modules.Ads.AdsModule.GetAdsToDisplayAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Returns the ads to display based on the query data.
             </summary>
             <param name="type">The type of the ad. Possible values are 'banner' and 'fullscreen'.</param>
+            <param name="size">The size of the ad to display. Possible values:
+            * `medium_rectangle` - 300x250 pixels
+            * `large_rectangle` - 336x280 pixels
+            * `leaderboard` - 728x90 pixels
+            * `skyscraper` - 120x600 pixels
+            * `wide_skyscraper` - 160x600 pixels
+            </param>
             <param name="limit">Maximum number of results.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>The details of the ads to display.</returns>
@@ -119,6 +126,18 @@
             The type of the ad. Possible values are 'banner' and 'fullscreen'.
             </summary>
         </member>
+        <member name="F:RGN.Modules.Ads.AdData.size">
+            <summary>
+            The size configuration for the ad. Possible values are:
+            <list type="bullet">
+            <item><description><c>medium_rectangle</c> - 300x250 pixels</description></item>
+            <item><description><c>large_rectangle</c> - 336x280 pixels</description></item>
+            <item><description><c>leaderboard</c> - 728x90 pixels</description></item>
+            <item><description><c>skyscraper</c> - 120x600 pixels</description></item>
+            <item><description><c>wide_skyscraper</c> - 160x600 pixels</description></item>
+            </list>
+            </summary>
+        </member>
         <member name="F:RGN.Modules.Ads.AdData.currentViewLimit">
             <summary>
             The current view limit of the ad, serving as a counter for the ad views.
@@ -153,12 +172,12 @@
         </member>
         <member name="T:RGN.Modules.Ads.RandomConfig">
             <summary>
-            Represents the random configuration for the ad, to determine ad fetch behavior.
+            Represents the random configuration for the ad, used to determine ad fetch behavior.
             </summary>
         </member>
-        <member name="F:RGN.Modules.Ads.RandomConfig.config">
+        <member name="F:RGN.Modules.Ads.RandomConfig.weight">
             <summary>
-            Configuration details for randomness in ad selection
+            The weight of the ad in the random selection.
             </summary>
         </member>
         <member name="T:RGN.Modules.Ads.AdDataResponseData">
@@ -176,7 +195,7 @@
             Response data for multiple ads retrieval.
             </summary>
         </member>
-        <member name="P:RGN.Modules.Ads.AdsResponseData.ads">
+        <member name="F:RGN.Modules.Ads.AdsResponseData.ads">
             <summary>
             The list of retrieved ads.
             </summary>
