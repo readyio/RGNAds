@@ -9,7 +9,7 @@
             This module is responsible for ads functionality.
             </summary>
         </member>
-        <member name="M:RGN.Modules.Ads.AdsModule.GetAdsToDisplayAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)">
+        <member name="M:RGN.Modules.Ads.AdsModule.GetAdsToDisplayAsync(System.String,System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Returns the ads to display based on the query data.
             </summary>
@@ -20,8 +20,12 @@
             * `leaderboard` - 728x90 pixels
             * `skyscraper` - 120x600 pixels
             * `wide_skyscraper` - 160x600 pixels
+            * `hd` - 1920x1080 pixels
+            * `hd_portrait` - 1080x1920 pixels
             </param>
             <param name="limit">Maximum number of results.</param>
+            <param name="randomCount">The number of random ads to return. Optional. Should be less than the limit.
+            It loads 'limit' ads and then randomly selects 'randomCount' ads from them based on the ad.random.weight value.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>The details of the ads to display.</returns>
             <exception cref="T:System.ArgumentException">Thrown when the input values are invalid.</exception>
@@ -135,6 +139,8 @@
             <item><description><c>leaderboard</c> - 728x90 pixels</description></item>
             <item><description><c>skyscraper</c> - 120x600 pixels</description></item>
             <item><description><c>wide_skyscraper</c> - 160x600 pixels</description></item>
+            <item><description><c>hd</c> - 1920x1080 pixels</description></item>
+            <item><description><c>hd_portrait</c> - 1080x1920 pixels</description></item>
             </list>
             </summary>
         </member>
